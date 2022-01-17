@@ -1,0 +1,27 @@
+<div style="padding: 80px">
+    <div class="row">
+        <div class="col-md-3">
+            <input type="text" class="form-control" placeholder="start" style="width: 300px" />
+            &nbsp;
+        </div>
+        <div class="col-md-3">
+            <input type="text" class="form-control" placeholder="end" style="width: 300px" />
+        </div>
+        <div class="col-md-1"> <button class="btn btn-primary" (click)='add()'>+</button>
+        </div>
+    </div>
+    <div *ngIf='startEnd.length>0'>
+        <div class="row" *ngFor='let inputs of startEnd; let i = index'>
+            <br>
+            <div class="col-md-3">
+                <input type="text" class="form-control" placeholder="start" style="width: 300px" />
+                &nbsp;
+            </div>
+            <div class="col-md-3">
+                <input type="text" class="form-control" placeholder="end" style="width: 300px" />
+            </div>
+            <div class="col-md-1"> <button class="btn btn-danger" (click)='remove(i)'>-</button>
+            </div>
+        </div>
+    </div>
+</div>

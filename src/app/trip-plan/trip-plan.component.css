@@ -1,0 +1,7 @@
+.block {
+  position: relative;
+  min-width: fit-content;
+}
+.btns {
+  min-width: auto;
+}

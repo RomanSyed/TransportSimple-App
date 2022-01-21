@@ -1,27 +1,26 @@
 <div style="padding: 80px">
-    <div class="row">
-        <div class="col-md-3">
-            <input type="text" class="form-control" placeholder="start" style="width: 300px" />
-            &nbsp;
-        </div>
-        <div class="col-md-3">
-            <input type="text" class="form-control" placeholder="end" style="width: 300px" />
-        </div>
-        <div class="col-md-1"> <button class="btn btn-primary" (click)='add()'>+</button>
-        </div>
-    </div>
-    <div *ngIf='startEnd.length>0'>
-        <div class="row" *ngFor='let inputs of startEnd; let i = index'>
+    <div *ngIf="trips.length>0">
+        <div *ngFor='let trip of trips; let i = index' class="row">
             <br>
-            <div class="col-md-3">
-                <input type="text" class="form-control" placeholder="start" style="width: 300px" />
-                &nbsp;
+            <div class="col-md-4 block">
+                <input (change)='validate()' id="input{{i}}" [(ngModel)]="trip.start" class="form-control"
+                    placeholder="start" style="width: 300px" type="text" />
+                &nbsp;{{id}}
             </div>
-            <div class="col-md-3">
-                <input type="text" class="form-control" placeholder="end" style="width: 300px" />
+            <div class="col-md-4 block">
+                <input [(ngModel)]="trip.end" class="form-control" placeholder="end" style="width: 300px" type="text" />
             </div>
-            <div class="col-md-1"> <button class="btn btn-danger" (click)='remove(i)'>-</button>
+            <div class="col-md-1 btns">
+                <button (click)='add()' class="btn btn-primary">+</button>
+            </div>
+            <div class="col-md-1">
+                <button (click)='remove(i)' class="btn btn-danger">-</button>
             </div>
         </div>
     </div>
+    <button (click)='submit()' class="btn btn-primary">Submit</button>
+
+    <br><br><br><br>
+    <canvas #canvas width="1000" height="200"></canvas>
+
 </div>
